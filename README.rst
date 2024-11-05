@@ -16,4 +16,33 @@ made this project for learning purposes, after all.
 
 Requirements
 ------------
+* `gcc`_ (or any other C++ compiler)
+* `make`_
+* `cmake`_
+* `git`_ or `gh`_
 
+Installation
+------------
+To install, firstly clone the repo:
+
+.. code:: sh
+
+   # git
+   git clone https://github.com/ElisStaaf/CAAAW caw
+
+   # gh
+   gh repo clone ElisStaaf/CAAAW caw
+
+After cd-ing into the ``caw`` directory, you would want to build
+an executable using ``cmake``:
+
+.. code:: sh
+
+   cmake .
+   sudo make
+
+.. _`gcc`: https://gcc.gnu.org/install
+.. _`make`: https://www.gnu.org/software/make
+.. _`cmake`: https://cmake.org/download
+.. _`git`: https://git-scm.com/downloads 
+.. _`gh`: https://github.com/cli/cli#installation
