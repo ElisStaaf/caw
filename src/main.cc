@@ -153,8 +153,8 @@ void PasswordManager::addPassword() {
     Password password;
     std::cout << "Adding new password:" << std::endl;
 
+    std::cout << "Name: ";
     do {
-        std::cout << "Name: ";
         getline(std::cin, password.name);
     } while (password.name.empty());
 
