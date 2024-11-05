@@ -333,84 +333,102 @@ bool fileExists(const std::string &filename) {
     return file.good();
 }
 
+void printMenu() {
+    std::cout << R"(
+  /$$$$$$   /$$$$$$  /$$      /$$
+ /$$__  $$ /$$__  $$| $$  /$ | $$
+| $$  \__/| $$  \ $$| $$ /$$$| $$
+| $$      | $$$$$$$$| $$/$$ $$ $$
+| $$      | $$__  $$| $$$$_  $$$$
+| $$    $$| $$  | $$| $$$/ \  $$$
+|  $$$$$$/| $$  | $$| $$/   \  $$
+ \______/ |__/  |__/|__/     \__/
+    )";
+    std::cout << "\nCAW is a possibly secure password manager.";
+    std::cout << "\nIt has support for tags, websites, logins etc!";
+    std::cout << "\nIt also inhibits *some* sort of security (but";
+    std::cout << "\ndon't rely on it.) Enjoy the password manager!\n\n";
+}
+
 int main() {
     std::string filename;
     int choice;
     std::string query;
     std::vector<std::string> sortFields;
     char input;
-    std::cout << "Enter name of the file: ";
+    printMenu();
+    std::cout << "% ";
     getline(std::cin, filename);
     std::cout << std::endl;
 
     PasswordManager manager(filename);
 
     if (!fileExists(filename)) {
-        std::cout << "File not exist.\n";
-    } else {
-        while (true) {
-            std::cout << "1. Search password" << std::endl;
-            std::cout << "2. Sort password" << std::endl;
-            std::cout << "3. Add password" << std::endl;
-            std::cout << "4. Edit password" << std::endl;
-            std::cout << "5. Delete password" << std::endl;
-            std::cout << "6. Add category" << std::endl;
-            std::cout << "7. Delete category" << std::endl;
-            std::cout << "8. Close program" << std::endl;
+        std::cout << "[ERROR]: File doesn't exist.\n";
+        return 1;
+    }
 
-            std::cout << "Choose an option: ";
-            std::cin >> choice;
-            std::cin.ignore();
+    while (1) {
+        std::cout << "1. Search password" << std::endl;
+        std::cout << "2. Sort password" << std::endl;
+        std::cout << "3. Add password" << std::endl;
+        std::cout << "4. Edit password" << std::endl;
+        std::cout << "5. Delete password" << std::endl;
+        std::cout << "6. Add category" << std::endl;
+        std::cout << "7. Delete category" << std::endl;
+        std::cout << "8. Close program" << std::endl;
 
-            switch (choice) {
-                case 1:
-                    std::cout << "Enter query: ";
-                    getline(std::cin, query);
-                    manager.searchPasswords(query);
-                    std::cout << "Type q to continue: ";
-                    std::cin >> input;
-                    tolower(input);
-                    if (input == 'q')
+        std::cout << "\n% ";
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                std::cout << "Enter query: ";
+                getline(std::cin, query);
+                manager.searchPasswords(query);
+                std::cout << "Type q to continue: ";
+                std::cin >> input;
+                tolower(input);
+                if (input == 'q')
+                    break;
+            case 2:
+                sortFields.clear();
+                while (true) {
+                    std::string field;
+                    std::cout << "Enter field/fields to sort (type q to close): ";
+                    getline(std::cin, field);
+                    if (field == "q" || field == "Q") {
                         break;
-                case 2:
-                    sortFields.clear();
-                    while (true) {
-                        std::string field;
-                        std::cout << "Enter field/fields to sort (type q to close): ";
-                        getline(std::cin, field);
-                        if (field == "q" || field == "Q") {
-                            break;
-                        }
-                        sortFields.push_back(field);
                     }
-                    manager.sortPasswords(sortFields);
-                    std::cout << "Type q to continue: ";
-                    std::cin >> input;
-                    tolower(input);
-                    if (input == 'q')
-                        break;
-                case 3:
-                    manager.addPassword();
+                    sortFields.push_back(field);
+                }
+                manager.sortPasswords(sortFields);
+                std::cout << "Type q to continue: ";
+                std::cin >> input;
+                tolower(input);
+                if (input == 'q')
                     break;
-                case 4:
-                    manager.editPassword();
-                    break;
-                case 5:
-                    manager.removePassword();
-                    break;
-                case 6:
-                    manager.addCategory();
-                    break;
-                case 7:
-                    manager.removeCategory();
-                    break;
-                case 8:
-                    return 0;
-                default:
-                    std::cout << "Invalid option." << std::endl;
-                    break;
-            }
-            std::cout << std::endl;
+            case 3:
+                manager.addPassword();
+                break;
+            case 4:
+                manager.editPassword();
+                break;
+            case 5:
+                manager.removePassword();
+                break;
+            case 6:
+                manager.addCategory();
+                break;
+            case 7:
+                manager.removeCategory();
+                break;
+            case 8:
+                return 0;
+            default:
+                std::cout << "Invalid option." << std::endl;
+                break;
         }
+        std::cout << std::endl;
     }
 }
