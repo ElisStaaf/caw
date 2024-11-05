@@ -6,7 +6,7 @@ CAAAW: The bird password manager
 .. image:: https://img.shields.io/badge/Version-1.0.0-38c747?style=for-the-badge
    :alt: Version = 1.0.0
    :target: https://github.com/ElisStaaf/CAAAW
-.. image:: https://img.shields.io/badge/Language-C-blue?logo=c++&style=for-the-badge
+.. image:: https://img.shields.io/badge/Language-C++-grey?logo=c%2B%2B&logoColor=white&labelColor=blue&&style=for-the-badge
    :alt: Language = C++
    :target: https://github.com/ElisStaaf/CAAAW
 
