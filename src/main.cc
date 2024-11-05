@@ -12,7 +12,7 @@ void PasswordManager::encryptFile() {
         }
         file.close();
     } else {
-        std::cout << "Error saving file.\n";
+        std::cout << "[ERROR]: Couldn't save file.\n";
     }
 }
 
@@ -30,7 +30,7 @@ void PasswordManager::decryptFile() {
         }
         file.close();
     } else {
-        std::cout << "Error reading file.\n";
+        std::cout << "[ERROR]: Couldn't read file.\n";
     }
 }
 
@@ -158,7 +158,7 @@ void PasswordManager::addPassword() {
         getline(std::cin, password.name);
     } while (password.name.empty());
 
-    std::cout << "Do you want to generate random password? (Y/N): ";
+    std::cout << "Do you want to generate random password? [y/n]: ";
     char generateChoice;
     std::cin >> generateChoice;
     tolower(generateChoice);
@@ -172,21 +172,21 @@ void PasswordManager::addPassword() {
         std::cin >> length;
         std::cin.ignore();
 
-        std::cout << "Include uppercase letters? (Y/N): ";
+        std::cout << "Include uppercase letters? [y/n]: ";
         char upperChoice;
         std::cin >> upperChoice;
         std::cin.ignore();
         tolower(upperChoice);
         includeUppercase = (upperChoice == 'y');
 
-        std::cout << "Include lowercase letters? (Y/N): ";
+        std::cout << "Include lowercase letters? [y/n]: ";
         char lowerChoice;
         std::cin >> lowerChoice;
         std::cin.ignore();
         tolower(lowerChoice);
         includeLowercase = (lowerChoice == 'y');
 
-        std::cout << "Include special characters? (Y/N): ";
+        std::cout << "Include special characters? [y/n]: ";
         char specialChoice;
         std::cin >> specialChoice;
         std::cin.ignore();
@@ -206,7 +206,7 @@ void PasswordManager::addPassword() {
         std::cout << "Error. \n";
     }
 
-    std::cout << "Do you want to add category that has been already created? (Y/n): ";
+    std::cout << "Do you want to add category that has been already created? [y/n]: ";
     char categoryChoice;
     std::cin >> categoryChoice;
     tolower(categoryChoice);
@@ -271,7 +271,7 @@ void PasswordManager::editPassword() {
     }
 
     if (!found) {
-        std::cout << "Password not found." << std::endl;
+        std::cout << "[ERROR]: Password not found." << std::endl;
     }
 }
 
@@ -280,7 +280,7 @@ void PasswordManager::removePassword() {
     std::cout << "Enter the name of the password to delete: ";
     getline(std::cin, name);
 
-    std::cout << "You are about to delete a password. Are you sure? (Y/N): " << std::endl;
+    std::cout << "You are about to delete a password. Are you sure? [y/n]: " << std::endl;
     char confirmation;
     std::cin >> confirmation;
     tolower(confirmation);
@@ -296,7 +296,7 @@ void PasswordManager::removePassword() {
             encryptFile();
             std::cout << "Password deleted." << std::endl;
         } else {
-            std::cout << "Password not found." << std::endl;
+            std::cout << "[ERROR]: Password not found." << std::endl;
         }
     } else {
         std::cout << "Operation canceled." << std::endl;
