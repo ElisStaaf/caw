@@ -145,7 +145,7 @@ std::string PasswordManager::randomPassword(int length, bool upperCase, bool low
 void PasswordManager::printVector() {
     std::cout << "Available categories: " << std::endl;
     for (const auto &category: categories) {
-        std::cout << "- " << category << std::endl;
+        std::cout << "* " << category << std::endl;
     }
 }
 
