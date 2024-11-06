@@ -1,4 +1,4 @@
-CAW!: The bird password manager
+CAW: The bird password manager
 ================================
 .. image:: https://img.shields.io/badge/Build%20(fedora)-passing-2a7fd5?logo=fedora&logoColor=2a7fd5&style=for-the-badge
    :alt: Build = Passing
@@ -10,12 +10,13 @@ CAW!: The bird password manager
    :alt: Language = C++
    :target: https://github.com/ElisStaaf/CAAAW
 
-CAW! is a password manager that acts like a bird; sometimes really amazing and majestic, and sometimes a
-gremlin that steals all of your shiny objects. If a memory leak happens, you're not allowed to sue me, I
-made this project for learning purposes, after all. It supports saving passwords into files, passwords
-with different categories, passwords for different websites and specific logins for the aforementioned
-websites. It's overall a pretty useful tool, but don't expect a GUI here, no! Developers with brains know
-that all real and productive work happens in the terminal. So yeah, terminal based password manager in C++.
+CAW is a password manager that acts like a bird; sometimes really amazing and majestic, and sometimes a
+gremlin that steals all of your shiny objects (but in this case "shiny objects" is your passwords)(just kidding). 
+If a memory leak happens, you're not allowed to sue me, I made this project for learning purposes, after all. It
+supports saving passwords into files, passwords with different categories, passwords for different websites and
+specific logins for the aforementioned websites. It's overall a pretty useful tool, but don't expect a 
+GUI here, no! Developers with brains know that all real and productive work happens in the terminal.
+So yeah, terminal based password manager in C++.
 
 Requirements
 ------------
