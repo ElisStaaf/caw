@@ -1,4 +1,4 @@
-CAAAW: The bird password manager
+CAW!: The bird password manager
 ================================
 .. image:: https://img.shields.io/badge/Build%20(fedora)-passing-2a7fd5?logo=fedora&logoColor=2a7fd5&style=for-the-badge
    :alt: Build = Passing
@@ -10,7 +10,7 @@ CAAAW: The bird password manager
    :alt: Language = C++
    :target: https://github.com/ElisStaaf/CAAAW
 
-CAAAW is a password manager that acts like a bird; sometimes really amazing and majestic, and sometimes a
+CAW! is a password manager that acts like a bird; sometimes really amazing and majestic, and sometimes a
 gremlin that steals all of your shiny objects. If a memory leak happens, you're not allowed to sue me, I
 made this project for learning purposes, after all. It supports saving passwords into files, passwords
 with different categories, passwords for different websites and specific logins for the aforementioned
@@ -31,10 +31,10 @@ To install, firstly clone the repo:
 .. code:: sh
 
    # git
-   git clone https://github.com/ElisStaaf/CAAAW caw
+   git clone https://github.com/ElisStaaf/caw caw
 
    # gh
-   gh repo clone ElisStaaf/CAAAW caw
+   gh repo clone ElisStaaf/caw caw
 
 After cd-ing into the ``caw`` directory, you would want to build
 an executable using ``cmake``:
